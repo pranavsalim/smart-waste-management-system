@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block title %}Login | CleanCity{% endblock %}
+{% block content %}
+<section class="form-wrap"><div class="form-heading"><span class="eyebrow">WELCOME BACK</span><h1>Log in to CleanCity</h1><p>Access your complaints and updates.</p></div>
+<form method="post" class="panel form-card">
+  <label>Email address<input type="email" name="email" required placeholder="you@example.com"></label>
+  <label>Password<input type="password" name="password" required placeholder="Your password"></label>
+  <button class="button primary full" type="submit">Login</button>
+  <p class="form-foot">New here? <a href="{{ url_for('register') }}">Create an account</a></p>
+</form></section>
+{% endblock %}

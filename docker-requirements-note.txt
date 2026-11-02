@@ -1,0 +1,1 @@
+For Docker deployment, add gunicorn to requirements.txt (gunicorn>=22,<24). It is not needed for the local Flask development server.

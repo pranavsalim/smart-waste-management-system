@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block title %}Report waste | CleanCity{% endblock %}
+{% block content %}
+<section class="form-wrap wide"><div class="form-heading"><span class="eyebrow">HELP KEEP YOUR AREA CLEAN</span><h1>Report garbage accumulation</h1><p>Provide clear details so the team can identify and resolve the issue.</p></div>
+<form method="post" enctype="multipart/form-data" class="panel form-card">
+  <label>Issue title<input name="title" required maxlength="120" placeholder="e.g. Garbage near the bus stop"></label>
+  <label>Location / address<input name="location" required maxlength="250" placeholder="Area, street or nearby landmark"></label>
+  <label>Description<textarea name="description" required rows="5" maxlength="1500" placeholder="Describe the waste issue..."></textarea></label>
+  <label>Upload photo <span class="muted">(optional, JPG/PNG/WEBP, max 5 MB)</span><input type="file" name="image" accept=".jpg,.jpeg,.png,.webp" data-file-input></label>
+  <p class="file-name" data-file-name>No file selected</p>
+  <button class="button primary full" type="submit">Submit Complaint</button>
+</form></section>
+{% endblock %}

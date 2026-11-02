@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}Admin Dashboard | CleanCity{% endblock %}
+{% block content %}
+<div class="page-heading"><div><span class="eyebrow">ADMINISTRATION</span><h1>Waste reports overview</h1><p>Review citizen reports and update their resolution status.</p></div></div>
+<section class="stats-grid">
+  <div class="stat panel"><span>Total reports</span><strong>{{ stats.total }}</strong></div>
+  <div class="stat panel"><span>Submitted</span><strong>{{ stats.submitted }}</strong></div>
+  <div class="stat panel"><span>In progress</span><strong>{{ stats.progress }}</strong></div>
+  <div class="stat panel"><span>Resolved</span><strong>{{ stats.resolved }}</strong></div>
+</section>
+<div class="table-wrap panel"><table><thead><tr><th>Ticket</th><th>Citizen</th><th>Issue</th><th>Location</th><th>Photo</th><th>Status / Update</th></tr></thead><tbody>
+{% for c in complaints %}<tr><td class="ticket">{{ c.ticket_id }}</td><td>{{ c.user_name }}<small class="cell-sub">{{ c.user_email }}</small></td><td>{{ c.title }}</td><td>{{ c.location }}</td><td>{% if c.image_filename %}<a href="{{ url_for('static', filename='uploads/' + c.image_filename) }}" target="_blank" rel="noopener">View photo</a>{% else %}—{% endif %}</td><td><form class="status-form" method="post" action="{{ url_for('update_status', complaint_id=c.id) }}"><select name="status"><option {% if c.status=='Submitted' %}selected{% endif %}>Submitted</option><option {% if c.status=='In Progress' %}selected{% endif %}>In Progress</option><option {% if c.status=='Resolved' %}selected{% endif %}>Resolved</option></select><button class="button small primary" type="submit">Save</button></form></td></tr>{% else %}<tr><td colspan="6" class="empty-cell">No reports have been submitted yet.</td></tr>{% endfor %}
+</tbody></table></div>
+{% endblock %}

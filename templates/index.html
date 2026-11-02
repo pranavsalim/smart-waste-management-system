@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}CleanCity | Cleaner streets, together{% endblock %}
+{% block content %}
+<section class="hero">
+  <div class="hero-copy">
+    <span class="eyebrow">SMARTER CITIES START WITH US</span>
+    <h1>Cleaner streets.<br><span>Stronger communities.</span></h1>
+    <p>Report garbage hotspots, share their location and follow every complaint until it is resolved.</p>
+    <div class="hero-actions">
+      <a class="button primary" href="{{ url_for('register') }}">Report an Issue</a>
+      <a class="button secondary" href="{{ url_for('login') }}">Track a Complaint</a>
+    </div>
+    <div class="trust-line"><span>●</span> Simple reporting · Transparent tracking · Cleaner neighbourhoods</div>
+  </div>
+  <div class="hero-art">
+    <div class="art-circle">♻</div><div class="art-leaf">🌿</div>
+    <div class="art-card"><strong>Clean neighbourhood</strong><small>One report can make a difference.</small></div>
+  </div>
+</section>
+<section class="feature-grid">
+  <article class="feature"><div class="feature-icon">📍</div><h3>Report a location</h3><p>Tell the civic team where waste has accumulated.</p></article>
+  <article class="feature"><div class="feature-icon">📷</div><h3>Add photo evidence</h3><p>Upload a picture to help explain the issue.</p></article>
+  <article class="feature"><div class="feature-icon">📊</div><h3>Track progress</h3><p>Follow the status of your complaint online.</p></article>
+</section>
+{% endblock %}

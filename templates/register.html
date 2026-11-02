@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}Create account | CleanCity{% endblock %}
+{% block content %}
+<section class="form-wrap"><div class="form-heading"><span class="eyebrow">JOIN THE COMMUNITY</span><h1>Create your account</h1><p>Register to report and track local waste issues.</p></div>
+<form method="post" class="panel form-card">
+  <label>Full name<input name="name" required maxlength="80" placeholder="Enter your name"></label>
+  <label>Email address<input type="email" name="email" required placeholder="you@example.com"></label>
+  <label>Password<input type="password" name="password" required minlength="8" placeholder="At least 8 characters"></label>
+  <button class="button primary full" type="submit">Create Account</button>
+  <p class="form-foot">Already registered? <a href="{{ url_for('login') }}">Log in</a></p>
+</form></section>
+{% endblock %}

@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block title %}My Dashboard | CleanCity{% endblock %}
+{% block content %}
+<div class="page-heading"><div><span class="eyebrow">CITIZEN PORTAL</span><h1>My complaints</h1><p>View the reports you have submitted and track their progress.</p></div><a class="button primary" href="{{ url_for('new_complaint') }}">＋ New Complaint</a></div>
+{% if complaints %}
+<div class="table-wrap panel"><table><thead><tr><th>Ticket ID</th><th>Issue</th><th>Location</th><th>Status</th><th>Submitted</th></tr></thead><tbody>
+{% for c in complaints %}<tr><td class="ticket">{{ c.ticket_id }}</td><td>{{ c.title }}</td><td>{{ c.location }}</td><td><span class="status {{ c.status|lower|replace(' ','-') }}">{{ c.status }}</span></td><td>{{ c.created_at[:10] }}</td></tr>{% endfor %}
+</tbody></table></div>
+{% else %}<div class="empty panel"><div class="empty-icon">🧹</div><h2>No complaints yet</h2><p>When you report a waste issue, it will appear here.</p><a class="button primary" href="{{ url_for('new_complaint') }}">Submit your first complaint</a></div>{% endif %}
+{% endblock %}
