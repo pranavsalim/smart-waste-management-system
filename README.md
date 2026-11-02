@@ -66,3 +66,4 @@ This starter is a local development version. It stores data in SQLite and upload
 - `/admin` — admin dashboard
 - `/api/health` — health check JSON
 - `/api/complaints` — authenticated user's complaint JSON
+AWS EC2 Deployment and GitHub Actions CI/CD is successfully configured.
